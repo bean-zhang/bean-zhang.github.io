@@ -29,6 +29,7 @@ footer-links:
   twitter: zb87boy
   stackoverflow: # your stackoverflow profile, e.g. "users/50476/bart-kiers"
   youtube: # channel/<your_long_string> or user/<user-name>
+  googleplus: +BinZhang87boy # anything in your profile username that comes after plus.google.com/
 
 # Enter your Disqus shortname (not your username) to enable commenting on posts
 # You can find your shortname on the Settings page of your Disqus account
@@ -76,3 +77,4 @@ exclude:
     - Gemfile.lock
     - LICENSE
     - README.md
+    - CNAME
