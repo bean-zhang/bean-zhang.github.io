@@ -18,16 +18,20 @@ avatar: http://s.gravatar.com/avatar/691f7454779761c4a690733af844e6b2?s=80
 # Includes an icon in the footer for each username you enter
 footer-links:
   dribbble:
+  # dribbble: 87boy
   email: sjtuzb@gmail.com
   facebook: zb87boy
   flickr:
+  # flickr: 87boy
   github: 87boy
   instagram:
+  # instagram: zb87boy
   linkedin: 87boy
   pinterest:
+  # pinterest: 87boy
   rss: # just type anything here for a working RSS icon, make sure you set the "url" above!
   twitter: zb87boy
-  stackoverflow: # your stackoverflow profile, e.g. "users/50476/bart-kiers"
+  stackoverflow: users/5506270/87boy # your stackoverflow profile, e.g. "users/50476/bart-kiers"
   youtube: # channel/<your_long_string> or user/<user-name>
   googleplus: +BinZhang87boy # anything in your profile username that comes after plus.google.com/
 
