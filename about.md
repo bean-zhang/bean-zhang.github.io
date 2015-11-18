@@ -9,7 +9,8 @@ Welcome to my personal blog!
 Who I am:
 
 * My full name is Bin Zhang or 张斌. Just call me Bean or 比恩.:)
-* Currently a master major in ECE, SJTU.
+* Currently a master major in [ECE](http://ee.sjtu.edu.cn/EN/Default.aspx), [SJTU](http://en.sjtu.edu.cn/).
+* A member of [OMNILab](http://omnilab.sjtu.edu.cn/)
 * Research interest is Cloud Computing, such as OpenStack.
 
 What I'm up to:
