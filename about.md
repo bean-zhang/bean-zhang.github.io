@@ -10,13 +10,13 @@ Who I am:
 
 * My full name is Bin Zhang or 张斌. Just call me Bean or 比恩.:)
 * Currently a master major in [ECE](http://ee.sjtu.edu.cn/EN/Default.aspx), [SJTU](http://en.sjtu.edu.cn/).
-* A member of [OMNILab](http://omnilab.sjtu.edu.cn/)
+* A member of [OMNILab (Open Meta Nexus Innovation Lab)](http://omnilab.sjtu.edu.cn/)
 * Research interest is Cloud Computing, such as OpenStack.
 
 What I'm up to:
 
 * Reading and Watching, refer to my [DouBan](http://www.douban.com/people/zb87boy/)
-* Coding, refer to my [GitHub](https://github.com/87boy)
+* Programming, refer to my [GitHub](https://github.com/87boy)
 * Travelling, maybe around the world in the future
 
 What I was:
@@ -27,7 +27,7 @@ What I was:
 
 What I was up to:
 
-
+* Studying
 
 ### Contact Me
 
