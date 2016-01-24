@@ -29,7 +29,7 @@ IRC (Internet Relay Chat) 是一个应用层的文本通信协议，采用客户
 
 ### 浏览器直接使用
 
-用浏览器打开网址 http://webchat.freenode.net/ 输入自己想要的Nickname和想进入的Channels即可连接登录，连接后即可加入群聊或私聊。
+用浏览器打开[webchat网址](http://webchat.freenode.net/)输入自己想要的Nickname和想进入的Channels即可连接登录，连接后即可加入群聊或私聊。
 
 ### 使用本地客户端
 
@@ -137,15 +137,26 @@ ZNC就在后台运行了。
 有没有一种在操作Linux命令行的感觉？so cool!
 
 ## 参考资料
-[1] Internet Relay Chat, https://en.wikipedia.org/wiki/Internet_Relay_Chat
-[2] https://drewdevault.com/2015/11/01/Please-stop-using-slack.html
-[3] Internet Relay Chat Help, http://www.irchelp.org/
-[4] Wikipedia: IRC Tutorial, https://en.wikipedia.org/wiki/Wikipedia:IRC/Tutorial
-[5] Wikipedia: Freenode, https://en.wikipedia.org/wiki/Freenode
-[6] Freenode, http://freenode.net/
-[7] ZNC, http://wiki.znc.in/ZNC
-[8] ZNC Installation, http://wiki.znc.in/Installation
-[9] https://www.digitalocean.com/community/tutorials/how-to-install-znc-an-irc-bouncer-on-an-ubuntu-vps
-[10] https://www.vultr.com/docs/install-and-setup-znc-on-ubuntu
-[11] http://superuser.com/questions/188058/which-ports-are-considered-unsafe-on-chrome
-[12] https://src.chromium.org/viewvc/chrome/trunk/src/net/base/net_util.cc
+[1] [Wikipedia: Internet Relay Chat](https://en.wikipedia.org/wiki/Internet_Relay_Chat)
+
+[2] [Please stop using slack](https://drewdevault.com/2015/11/01/Please-stop-using-slack.html)
+
+[3] [Internet Relay Chat Help](http://www.irchelp.org/)
+
+[4] [Wikipedia: IRC Tutorial](https://en.wikipedia.org/wiki/Wikipedia:IRC/Tutorial)
+
+[5] [Wikipedia: Freenode](https://en.wikipedia.org/wiki/Freenode)
+
+[6] [Freenode](http://freenode.net/)
+
+[7] [ZNC](http://wiki.znc.in/ZNC)
+
+[8] [ZNC Installation](http://wiki.znc.in/Installation)
+
+[9] [How to install ZNC on an Ubuntu](https://www.digitalocean.com/community/tutorials/how-to-install-znc-an-irc-bouncer-on-an-ubuntu-vps)
+
+[10] [Install and Setup ZNC on Ubuntu](https://www.vultr.com/docs/install-and-setup-znc-on-ubuntu)
+
+[11] [Which ports are considered unsafe on Chrome](http://superuser.com/questions/188058/which-ports-are-considered-unsafe-on-chrome)
+
+[12] [Chromium Source Code](https://src.chromium.org/viewvc/chrome/trunk/src/net/base/net_util.cc)
