@@ -1,5 +1,8 @@
 ---
 layout: post
+permalink: /blog/2016/01/24/Internet-Relay-Chat.html
+category: software
+tags: [software, IM, IRC]
 title: IRC (Internet Relay Chat) 入门
 ---
 
@@ -79,7 +82,7 @@ IRC (Internet Relay Chat) 是一个应用层的文本通信协议，采用客户
 	Listen on port (1025 to 65534): 5000 # 不推荐使用6000和6665~6669等端口[11,12]
 	Listen using SSL (yes/no) [no]: no
 	Listen using both IPv4 and IPv6 (yes/no) [yes]: yes
-	
+
 	Username (alphanumeric): <your_username>
 	Enter password: <your_password>
 	Confirm password: <your_password>
@@ -88,15 +91,15 @@ IRC (Internet Relay Chat) 是一个应用层的文本通信协议，采用客户
 	Ident [<your_nickname>]: <your_ident>
 	Real name [Got ZNC?]: <your_real_name>
 	Bind host (optional): [<refer_configuration>](http://wiki.znc.in/Configuration)
-	
+
 	Set up a network? (yes/no) [yes]: yes
 	Name [freenode]: freenode
 	Server host [chat.freenode.net]: chat.freenode.net
 	Server uses SSL? (yes/no) [yes]: yes
 	Server port (1 to 65535) [6697]: 6697
-	Server password (probably empty): 
-	Initial channels: 
-	
+	Server password (probably empty):
+	Initial channels:
+
 	Launch ZNC now? (yes/no) [yes]: yes
 
 ZNC就在后台运行了。
@@ -129,9 +132,9 @@ ZNC就在后台运行了。
 唯一属于你的nickname就注册完毕了。
 
 可以通过如下命令查看你的账户信息
-	
+
 	/msg NickServ info
-	
+
 可以通过如下帮助命令查看命令提示
 
 	/msg NickServ help

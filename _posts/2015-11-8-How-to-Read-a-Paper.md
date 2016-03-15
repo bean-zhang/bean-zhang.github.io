@@ -1,5 +1,8 @@
 ---
 layout: post
+permalink: /blog/2015/11/08/How-to-Read-a-Paper.html
+category: note
+tags: [note, paper]
 title: 如何阅读一篇论文
 ---
 
@@ -78,8 +81,11 @@ title: 如何阅读一篇论文
 [2] S. Peyton Jones, “Research Skills,”
 [http://research.microsoft.com/en-us/um/people/simonpj/papers/giving-a-talk/giving-a-talk.htm](http://research.microsoft.com/en-us/um/people/simonpj/papers/giving-a-talk/giving-a-talk.htm).
 
-[3] T. Roscoe, “Writing Reviews for Systems Conferences,”[http://people.inf.ethz.ch/troscoe/pubs/review-writing.pdf](http://people.inf.ethz.ch/troscoe/pubs/review-writing.pdf).
+[3] T. Roscoe, “Writing Reviews for Systems Conferences,”
+[http://people.inf.ethz.ch/troscoe/pubs/review-writing.pdf](http://people.inf.ethz.ch/troscoe/pubs/review-writing.pdf).
 
-[4] H. Schulzrinne, “Writing Technical Articles,”[http://www.cs.columbia.edu/~hgs/etc/writing-style.html](http://www.cs.columbia.edu/~hgs/etc/writing-style.html).
+[4] H. Schulzrinne, “Writing Technical Articles,”
+[http://www.cs.columbia.edu/~hgs/etc/writing-style.html](http://www.cs.columbia.edu/~hgs/etc/writing-style.html).
 
-[5] G.M. Whitesides, “Whitesides’ Group: Writing aPaper,” [http://www.che.iitm.ac.in/misc/dd/writepaper.pdf](http://www.che.iitm.ac.in/misc/dd/writepaper.pdf).
+[5] G.M. Whitesides, “Whitesides’ Group: Writing a
+Paper,” [http://www.che.iitm.ac.in/misc/dd/writepaper.pdf](http://www.che.iitm.ac.in/misc/dd/writepaper.pdf).

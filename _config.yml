@@ -11,6 +11,12 @@ description: People call me Bean
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
 avatar: http://s.gravatar.com/avatar/691f7454779761c4a690733af844e6b2?s=80
 
+timezone: Asia/Shanghai
+
+JB :
+  ASSET_PATH :
+  IMAGE_PATH :
+
 #
 # Flags below are optional
 #
@@ -60,12 +66,34 @@ baseurl: ""
 # !! You don't need to change any of the configuration flags below !!
 #
 
-markdown: redcarpet
-highlighter: pygments
-permalink: /:title/
+permalink: /blog/:year/:month/:day/:title.html
+
+# Where things are
+source:       .
+destination:  ./_site
+plugins_dir:  ./_plugins
+layouts_dir:  ./_layouts
+data_dir:     ./_data
+includes_dir: ./_includes
+collections:  null
+
+safe: true
+include: [".htaccess"]
+encoding: "utf-8"
 
 # The release of Jekyll Now that you're using
-version: v1.1.0
+version: v1.2.0
+
+# Jekyll 3 now only supports Kramdown for Markdown
+kramdown:
+  # Use GitHub flavored markdown, including triple backtick fenced code blocks
+  input: GFM
+  hard_wrap: false
+  # Jekyll 3 and GitHub Pages now only support rouge for syntax highlighting
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    # Use existing pygments syntax highlighting css
+    css_class: 'highlight'
 
 # Set the Sass partials directory, as we're using @imports
 sass:
@@ -74,6 +102,7 @@ sass:
 # Use the following plug-ins
 gems:
   - jekyll-sitemap # Create a sitemap using the official Jekyll sitemap gem
+  - jekyll-feed # Create an Atom feed using the official Jekyll feed gem
 
 # Exclude these files from your production _site
 exclude:

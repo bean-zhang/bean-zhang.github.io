@@ -1,5 +1,8 @@
 ---
 layout: post
+permalink: /blog/2016/02/22/RUBiS-Installation-and-Configuration.html
+category: software
+tags: [software, research, RUBiS]
 title: RUBiS的安装及配置
 ---
 
@@ -18,14 +21,14 @@ RUBiS的官网上说它是一个仿照[eBay网](eBay.com)搭建的拍卖网站�
 	RUBiS/
 		|-- bench/						包含一些shell脚本文件及最终的运行报告
 		|-- Client/						客户端代码
-			|-- edu/						代码
+			|-- edu/					代码
 			|-- rubis.properties		配置文件
 			|-- Makefile
 		|-- database/					数据库代码
-		|-- PHP/							服务端代码
+		|-- PHP/						服务端代码
 		|-- workload/
 		|-- config.mk					make用到的环境变量
-		|-- Makefile 	    	    
+		|-- Makefile
 
 ## 部署环境
 
@@ -52,11 +55,11 @@ RUBiS的官网上说它是一个仿照[eBay网](eBay.com)搭建的拍卖网站�
 所有服务器及客户端下载最新版本的RUBiS
 
 	wget http://download.forge.ow2.org/rubis/RUBiS-1.4.3.tgz
-	
+
 或者
-	
+
 	wget http://download.forge.objectweb.org/rubis/RUBiS-1.4.3.tgz
-	
+
 解压文件至/home/RUBiS
 
 	tar -zxvf RUBiS-1.4.3.tgz
@@ -71,7 +74,7 @@ a. 安装MySQL服务器
 b. 安装监控软件
 
 	# yum install sysstat
-	
+
 c. 配置MySQL访问用户并赋予权限
 
 启动MySQL
@@ -114,11 +117,11 @@ d. 调用sql文件初始化rubis需要的数据库
 	# mysql -urubis -p<rubis_password> rubis < categories.sql
 
 e. 开启防火墙中MySQL数据库3306端口
-	
+
 	iptables -I INPUT -p tcp --dport 3306 -j ACCEPT
 
 如果要重启保持生效，则需要修改/etc/sysconfig/iptables文件，加入
-	
+
 	-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 3306 -j ACCEPT
 
 参考
@@ -155,10 +158,10 @@ d. 修改RUBiS的PHP代码：
 
 因为RUBiS在04年之后就没有对代码进行维护了。所以其的PHP版本中使用了不少新PHP版本已经废弃的命令，导致客户端访问apache服务器的时候会出现问题。所以需要手动修正这些问题。
 将/home/RUBiS/PHP/目录下的所有PHP文件中：
-		
+
 		$HTTP_POST_VARS	改为	$_POST
 		$HTTP_GET_VARS		改为	$_GET
-	
+
 	grep -ci "HTTP_POST_VARS" *.php
 	grep -ci "HTTP_GET_VARS" *.php
 
@@ -166,7 +169,7 @@ d. 修改RUBiS的PHP代码：
 	sed -i "s/HTTP_GET_VARS/_GET/g" *.php
 
 编辑/etc/php.ini文件，屏蔽PHP的部分警告
-	
+
 	error_reporting  =  E_ALL & ~E_NOTICE
 
 e. 配置PHP连接的数据库信息。
@@ -180,11 +183,11 @@ e. 配置PHP连接的数据库信息。
 **注**：配置到这个步骤，访问apache服务器上的rubis主页，应该就有完成的页面了，同时可以浏览到数据库中基本信息了。
 
 f. 开启防火墙Apache HTTP服务 80端口
-	
+
 	iptables -I INPUT -p tcp --dport 80 -j ACCEPT
 
 如果要重启保持生效，则需要修改/etc/sysconfig/iptables文件，加入
-	
+
 	-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT
 
 若使用了OpenStack等云计算环境，同时别忘了打开安全组规则，建议打开 TCP 22(SSH) / 53(DNS) / 80(HTTP) / 443(HTTPS) / 3306(MySQL)
@@ -201,7 +204,7 @@ http://unix.stackexchange.com/questions/20993/symbolic-link-not-allowed-or-link-
 	Permissive
 
 如果要重启生效，则需要修改
-	
+
 	# vi /etc/sysconfig/selinux
 	SELINUX=Permissive
 
@@ -221,11 +224,11 @@ b. 修改配置文件
 **注意** 参数千万不要设的太大，尤其是用户数等，默认是一百万！太大了，光生成数据就得两小时！
 
 修改ebay_regions.txt等文件的路径为当前系统正确的文件路径。
-	
+
 	vi /home/RUBiS/Client/rubis.properties
 
 否则会出现初始化数据库出错
-	
+
 	<h3><br>### Region & Category definition files ###</h3>
 	Regions description file: Error while checking database.properties: /users/margueri/RUBiS/database/ebay_regions.txt (No such file or directory)
 	make: *** [initDB] Error 1
@@ -233,19 +236,19 @@ b. 修改配置文件
 `·/home/RUBiS/config.mk`该文件主要配置了一些必须的环境变量。比如\$JAVA, \$JAVAC, \$CLASSPATH, \$JAR等。还有一些常用的命令，\$MAKE, \$CP, \$RM等操作。同时，还配置了使用的数据库类型，\$DB_SERVER，该变量只有MySQL和PostgreSQL两种选择。
 
 c. 安装java, javac并配置JAVA_HOME环境变量
-	
+
 	yum list \*java-1\* | grep open
 	yum install java-1.6.0-openjdk.x86_64
 	yum install java-1.6.0-openjdk-devel.x86_64
-	
+
 	export JAVA_HOME=/usr/lib/jvm/java-1.6.0-openjdk.x86_64
 	echo $JAVA_HOME
 
 	export PATH=$JAVA_HOME/bin:$PATH
 	export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
-	
+
 可以将这些环境变量写入/etc/profile或~/.bash_profile(推荐)
-	
+
 	export JAVA_HOME=/usr/lib/jvm/java-1.6.0-openjdk.x86_64
 	export PATH=$JAVA_HOME/bin:$PATH
 	export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
@@ -256,7 +259,7 @@ http://tecadmin.net/steps-to-install-java-on-centos-5-6-or-rhel-5-6
 https://www.digitalocean.com/community/tutorials/how-to-install-java-on-centos-and-fedora
 
 否则会编译出错，没有java, javac等
-	
+
 	[root@centos5 RUBiS]# make client
 	cd Client ; make all
 	make[1]: Entering directory `/home/RUBiS/Client'
@@ -318,13 +321,13 @@ rubis模拟器生成的报告会出现在/home/RUBiS/bench/目录下。
 ### 删除数据库重新初始化
 
 由于第一次运行，没注意具体参数，用户数默认一百万，条目数默认一百万，建立用户就花了近两个小时，建立条目和评论估计得十多个小时，所以只好强制关闭，删除数据库重新初始化。
-	
+
 	# 在mysql服务器上执行
 	> show databases;
 	> drop database rubis;
 	> show databases;
 	> exit
-	
+
 	# 在mysql服务器上执行
 	# 调用sql文件初始化rubis需要的数据库
 	# cd /home/RUBiS/database
@@ -332,17 +335,17 @@ rubis模拟器生成的报告会出现在/home/RUBiS/bench/目录下。
 	# mysql -urubis -p<rubis_password> rubis < regions.sql
 	# mysql -urubis -p<rubis_password> rubis < categories.sql
 	# 在Apache服务器上执行
-	rm -rf access_log 
+	rm -rf access_log
 	touch access_log
 	rm -rf error_log
 	touch error_log
 	# service httpd restart
-	
+
 	# 在client服务器上执行
 	# 初始化数据库
 	# cd /home/RUBiS
 	# make initDB PARAM='all'
-	
+
 	# 连接数据库查看初始化结果
 	> show databases;
 	> use rubis;
@@ -356,11 +359,11 @@ rubis模拟器生成的报告会出现在/home/RUBiS/bench/目录下。
 
 	PHP Notice:  Undefined index:
 	PHP Notice:  Undefined variable:
-	
+
 http://stackoverflow.com/questions/4261133/php-notice-undefined-variable-and-notice-undefined-index
 http://stackoverflow.com/questions/4465728/php-error-notice-undefined-index
 
-Disable E_NOTICE from reporting. A quick way to exclude just E_NOTICE is 
+Disable E_NOTICE from reporting. A quick way to exclude just E_NOTICE is
 
 	error_reporting( error_reporting() & ~E_NOTICE ).
 
@@ -390,14 +393,14 @@ http://zyan.cc/post/269/
 	netstat -n | awk '/^tcp/ {++S[$NF]} END {for(a in S) print a, S[a]}'
 
 返回结果示例：
-	
+
 	LAST_ACK 5
 	SYN_RECV 30
 	ESTABLISHED 1597
 	FIN_WAIT1 51
 	FIN_WAIT2 504
 	TIME_WAIT 1057
-	
+
 其中的`SYN_RECV`表示正在等待处理的请求数；`ESTABLISHED`表示正常数据传输状态；`TIME_WAIT`表示处理完毕，等待超时结束的请求数。
 
 参考
@@ -424,18 +427,18 @@ vi /etc/httpd/conf/httpd.conf
 	KeepAliveTimeout 60
 
 	#mpm_perfork模块
-	
+
 	<IfModule mpm_prefork_module>
 	StartServers          5 #推荐设置：小=默认 中=20~50 大=50~100
 	MinSpareServers       5 #推荐设置：与StartServers保持一致
-	MaxSpareServers      10 #推荐设置：小=20 中=30~80 大=80~120 
+	MaxSpareServers      10 #推荐设置：小=20 中=30~80 大=80~120
 	MaxClients          150 #推荐设置：小=500 中=500~1500 大型=1500~3000
 	MaxRequestsPerChild   0 #推荐设置：小=10000 中或大=10000~500000
 	(此外，还需额外设置ServerLimit参数，该参数最好与MaxClients的值保持一致。)
-	
+
 	MaxKeepAliveRequests 1000
 	MaxKeepAliveRequests 2000
-	
+
 	</IfModule>
 
 	<IfModule prefork.c>
@@ -445,14 +448,14 @@ vi /etc/httpd/conf/httpd.conf
 	#ServerLimit      256
 	#MaxClients       256
 	#MaxRequestsPerChild  4000
-	
+
 	StartServers       25
 	MinSpareServers    20
 	MaxSpareServers   80
 	ServerLimit      1000
 	MaxClients       1000
 	MaxRequestsPerChild  4000
-	
+
 	StartServers       50
 	MinSpareServers    40
 	MaxSpareServers   120
@@ -468,7 +471,7 @@ vi /etc/httpd/conf/httpd.conf
 	#MaxSpareThreads     75
 	#ThreadsPerChild     25
 	#MaxRequestsPerChild  0
-	
+
 	StartServers         5
 	MaxClients         2000
 	MinSpareThreads     50
@@ -493,7 +496,7 @@ vi /etc/my.cnf
 
 	max_connections = 2000
 	max_connect_errors = 5000
-	
+
 	back_log = 500
 	join_buffer_size = 2M
 	key_buffer_size = 512M	# MyISAM表的索引块分配了缓冲区，由所有线程共享。key_buffer_size是索引块缓冲区的大小。最大允许设定值为4GB，通常为主要运行MySQL的机器内存的25%。
@@ -509,7 +512,7 @@ vi /etc/my.cnf
 	thread_cache_size = 128		# 服务器应缓存多少线程以便重新使用。如果新连接很多，可以增加该变量以提高性能。
 	thread_concurrency = 2		# Try number of CPU's*2
 	wait_timeout = 120
-	
+
 	skip-locking	# 避免MySQL的外部锁定，mysqld使用外部锁定，该值为OFF
 
 配置完毕后重启 MySQL服务
@@ -531,7 +534,7 @@ http://linyu19872008.iteye.com/blog/1998832
 
 	# HTTP端使用的版本，可选PHP, Servlets, EJB
 	httpd_use_version = PHP
-	
+
 	#各个版本对应的路径
 	#虽然选择了PHP版本，但是Servlets和EJB版本的脚本路径还是要配置，不然会报错。
 	cjdbc_hostname = 10.0.0.1
@@ -541,17 +544,17 @@ http://linyu19872008.iteye.com/blog/1998832
 	servlets_server = 10.0.0.1
 	servlets_html_path = /Servlet_HTML
 	servlets_script_path = /servlet
-	 
-	
+
+
 	#PHP版本的脚本路径
 	php_html_path = /PHP
 	php_script_path = /PHP
-	 
-	
+
+
 	#####  负载的配置  #####
-	
+
 	# 在使用make emulator启动模拟器对应用进行性能测试的时候，所需要的规则配置。
-	
+
 	# 远程client信息
 	# 远程节点主机名或者ip，使用逗号分隔开。空白说明只有主client。
 	workload_remote_client_nodes = 10.0.0.4
@@ -561,7 +564,7 @@ http://linyu19872008.iteye.com/blog/1998832
 	# 每个节点的客户端数量
 	workload_number_of_clients_per_node = 240
 	workload_number_of_clients_per_node = 500
-	
+
 	# 负载量
 	workload_transition_table = /home/RUBiS/workload/transitions.txt
 	workload_number_of_columns = 27
@@ -574,21 +577,21 @@ http://linyu19872008.iteye.com/blog/1998832
 	workload_session_run_time_in_ms = 900000
 	workload_down_ramp_time_in_ms = 60000
 	workload_down_ramp_slowdown_factor = 3
-	
-	
+
+
 	#####  数据库相关  #####
 	# 执行make initDB初始化数据库的时候需要的规则。
-	
+
 	# 数据库主机
 	database_server = 10.0.0.2
-	
+
 	# 用户
 	database_number_of_users = 10000
-	
+
 	# Region & Category definition files
 	database_regions_file = /home/RUBiS/database/ebay_regions.txt
 	database_categories_file = /home/RUBiS/database/ebay_simple_categories.txt
-	
+
 	# 产品
 	database_number_of_old_items = 10000
 	database_percentage_of_unique_items = 80
@@ -596,32 +599,32 @@ http://linyu19872008.iteye.com/blog/1998832
 	database_percentage_of_buy_now_items = 10
 	database_max_quantity_for_multiple_items = 10
 	database_item_description_length = 1024
-	
+
 	# 标价
 	# 每个物品可标价最大数
 	database_max_bids_per_item = 20
-	
+
 	# 评论
 	# 每个用户可评论最大值
 	database_max_comments_per_user = 20
 	# 每条评论长度最大值
 	database_comment_max_length = 2048
-	
+
 	#####   监控信息  #####
 	# 监控的等级：0 不监控；1 只监控error；2 error和html；3 所有信息
 	monitoring_debug_level = 0
-	
+
 	# 监控程序
 	monitoring_program = /usr/bin/sar
 	monitoring_options = -n DEV -n SOCK -rubcw
-	
+
 	# 监控采样频率
 	monitoring_sampling_in_seconds = 1
-	
+
 	# 远程命令
 	monitoring_rsh = /usr/bin/ssh
 	monitoring_scp = /usr/bin/scp
-	
+
 	# gnuplot生成图片的格式
 	monitoring_gnuplot_terminal = jpeg
 
@@ -630,30 +633,30 @@ rubis.properties 文件配置内容
 	# HTTP server information
 	httpd_hostname = 10.0.0.1
 	httpd_port = 80
-	
+
 	# +# C-JDBC server information
-	# +cjdbc_hostname = 
-	
+	# +cjdbc_hostname =
+
 	# Precise which version to use. Valid options are : PHP, Servlets, EJB
 	httpd_use_version = PHP
-	
+
 	cjdbc_hostname = 10.0.0.1
 	ejb_server = 10.0.0.1
 	ejb_html_path = /ejb_rubis_web
 	ejb_script_path = /ejb_rubis_web/servlet
-	
+
 	servlets_server = 10.0.0.1
 	servlets_html_path = /Servlet_HTML
 	servlets_script_path = /servlet
-	
+
 	php_html_path = /PHP
 	php_script_path = /PHP
-	
+
 	# Workload: precise which transition table to use
-	workload_remote_client_nodes = 
+	workload_remote_client_nodes =
 	workload_remote_client_command = /usr/local/java/jdk1.3.1/bin/java -classpath RUBiS edu.rice.rubis.client.ClientEmulator
 	workload_number_of_clients_per_node = 240
-	
+
 	workload_transition_table = /home/RUBiS/workload/transitions.txt
 	workload_number_of_columns = 27
 	workload_number_of_rows = 29
@@ -665,18 +668,18 @@ rubis.properties 文件配置内容
 	workload_session_run_time_in_ms = 900000
 	workload_down_ramp_time_in_ms = 60000
 	workload_down_ramp_slowdown_factor = 3
-	
-	
+
+
 	#Database information
 	database_server = 10.0.0.2
-	
+
 	# Users policy
 	database_number_of_users = 10000
-	
+
 	# Region & Category definition files
 	database_regions_file = /home/RUBiS/database/ebay_regions.txt
 	database_categories_file = /home/RUBiS/database/ebay_simple_categories.txt
-	
+
 	# Items policy
 	database_number_of_old_items = 10000
 	database_percentage_of_unique_items = 80
@@ -684,15 +687,15 @@ rubis.properties 文件配置内容
 	database_percentage_of_buy_now_items = 10
 	database_max_quantity_for_multiple_items = 10
 	database_item_description_length = 1024
-	
+
 	# Bids policy
 	database_max_bids_per_item = 20
-	
+
 	# Comments policy
 	database_max_comments_per_user = 20
 	database_comment_max_length = 2048
-	
-	
+
+
 	# Monitoring Information
 	monitoring_debug_level = 0
 	monitoring_program = /usr/bin/sar
@@ -708,7 +711,7 @@ rubis.properties 文件配置内容
 	+----+----------------------------------------+---------------+---------+------------+---------------------+
 	| id | name                                   | initial_price | max_bid | nb_of_bids | end_date            |
 	+----+----------------------------------------+---------------+---------+------------+---------------------+
-	|  5 | RUBiS automatically generated item #5  |          4750 |    4843 |         18 | 2016-01-20 13:09:31 | 
-	| 25 | RUBiS automatically generated item #25 |          1729 |    1798 |         14 | 2016-01-22 13:09:32 | 
-	| 45 | RUBiS automatically generated item #45 |          2549 |    2652 |         17 | 2016-01-20 13:09:34 | 
+	|  5 | RUBiS automatically generated item #5  |          4750 |    4843 |         18 | 2016-01-20 13:09:31 |
+	| 25 | RUBiS automatically generated item #25 |          1729 |    1798 |         14 | 2016-01-22 13:09:32 |
+	| 45 | RUBiS automatically generated item #45 |          2549 |    2652 |         17 | 2016-01-20 13:09:34 |
 	+----+----------------------------------------+---------------+---------+------------+---------------------+
