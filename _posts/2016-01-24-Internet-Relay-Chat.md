@@ -1,6 +1,6 @@
 ---
 layout: post
-title: IRC (Internet Relay Chat) 简介、安装、配置及使用
+title: IRC (Internet Relay Chat) 入门
 ---
 
 ## IRC简介
@@ -39,7 +39,9 @@ IRC (Internet Relay Chat) 是一个应用层的文本通信协议，采用客户
 
 ### 安装和配置IRC代理ZNC
 
-由于通过浏览器或本地客户端直接连接IRC网络进行聊天不能保留聊天记录，也无法收到离线时的消息，所以需要代理进行接收和保存离线消息。有很多这样的开源客户端，如[ZNC](http://wiki.znc.in/ZNC)、[Bip](https://bip.milkypond.org/)等等。本文以ZNC为例进行安装和配置。
+虽然通过浏览器或本地客户端直接连接IRC网络进行聊天不能保留聊天记录，也无法收到离线时的消息，但一般项目进行IRC会议会采用[MeetBot](https://wiki.debian.org/MeetBot)的方式，使得会议记录自动保存于项目特定地址中。如OpenStack项目，会保存于`http://eavesdrop.openstack.org/meetings/<project_name>/`中。
+
+当然不是会议的部分，就无法保存了。不过可以代理进行接收和保存离线消息。有很多这样的开源客户端，如[ZNC](http://wiki.znc.in/ZNC)、[Bip](https://bip.milkypond.org/)等等。本文以ZNC为例进行安装和配置。
 
 首先，你需要一台长期在线的服务器（或虚拟机），在你想访问的地方可以访问到，最好是有公网IP。具体说明可参考 [ZNC Installation](http://wiki.znc.in/Installation)
 
@@ -133,6 +135,15 @@ ZNC就在后台运行了。
 可以通过如下帮助命令查看命令提示
 
 	/msg NickServ help
+
+以后登录时，要么配置客户端直接登录，要么输入登录的命令
+
+	/msg NickServ identify <your_password>
+
+还可以在同一个账户下注册多个昵称：
+
+	/nick <your_new_nickname>
+	/msg NickServ Group
 
 有没有一种在操作Linux命令行的感觉？so cool!
 
