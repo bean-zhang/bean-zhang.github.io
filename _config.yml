@@ -75,7 +75,7 @@ plugins_dir:  ./_plugins
 layouts_dir:  ./_layouts
 data_dir:     ./_data
 includes_dir: ./_includes
-collections:  null
+# collections:  null
 
 safe: true
 include: [".htaccess"]
