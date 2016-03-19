@@ -15,8 +15,8 @@ Who I am:
 
 What I'm up to:
 
-* Reading and Watching, refer to my [DouBan](http://www.douban.com/people/zb87boy/)
 * Programming, refer to my [GitHub](https://github.com/87boy)
+* Reading and Watching, refer to my [DouBan](http://www.douban.com/people/zb87boy/)
 * Travelling, maybe around the world in the future
 
 What I was:

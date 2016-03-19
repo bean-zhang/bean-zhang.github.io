@@ -368,7 +368,7 @@ SUID(Set User ID)和SGID(Set Group ID)在shell脚本中是被禁止的。
 	# This is not:
 	var="`command \`command1\``"
 
-### 测试，[和[[
+### test，[和[[
 
 推荐使用`[[ ... ]]`，而不是`[`, `test`, 和 `/usr/bin/ [`。
 
