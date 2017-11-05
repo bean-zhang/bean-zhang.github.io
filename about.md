@@ -8,10 +8,10 @@ Welcome to my personal blog!
 
 Who I am:
 
-* My full name is Bin Zhang or 张斌. Just call me Bean or 比恩.:)
+* My full name is Bean Zhang. Just call me Bean :)
 * Currently a master major in [ECE](http://ee.sjtu.edu.cn/EN/Default.aspx), [SJTU](http://en.sjtu.edu.cn/).
 * A member of [OMNILab (Open Meta Nexus Innovation Lab)](http://omnilab.sjtu.edu.cn/)
-* Research interest is Cloud Computing, such as OpenStack.
+* Research interest is Machine Learning, especially Deep Learning.
 
 What I'm up to:
 
@@ -23,11 +23,12 @@ What I was:
 
 * A co-founder of [MDH Maker Space](http://mindahuang.org/)
 * Founder & First President of [New Bee Studio](http://newbee.io/)
+* An intern in [Alibaba Cloud](https://www.aliyun.com/)
 * An intern in [Ericsson, China](http://www.ericsson.com/cn/)
 
 What I was up to:
 
-* Studying
+* Studying and Practising
 
 ### Contact Me
 

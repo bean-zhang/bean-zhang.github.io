@@ -3,7 +3,7 @@
 #
 
 # Name of your site (displayed in the header)
-name: Bin Zhang
+name: Bean Zhang
 
 # Short bio or description (displayed in the header)
 description: People call me Bean
@@ -54,7 +54,7 @@ baidu_tongji: 9b87546a64c075f3e940c03cba044d98
 
 # Your website URL (e.g. http://barryclark.github.io or http://www.barryclark.co)
 # Used for Sitemap.xml and your RSS feed
-url: http://87boy.me
+url: http://beanzhang.me
 
 # If you're hosting your site at a Project repository on GitHub pages
 # (http://yourusername.github.io/repository-name)
@@ -92,8 +92,8 @@ kramdown:
   # Jekyll 3 and GitHub Pages now only support rouge for syntax highlighting
   syntax_highlighter: rouge
   syntax_highlighter_opts:
-    # Use existing pygments syntax highlighting css
-    css_class: 'highlight'
+  # Use existing pygments syntax highlighting css
+  css_class: 'highlight'
 
 # Set the Sass partials directory, as we're using @imports
 sass:
@@ -106,8 +106,9 @@ gems:
 
 # Exclude these files from your production _site
 exclude:
-    - Gemfile
-    - Gemfile.lock
-    - LICENSE
-    - README.md
-    - CNAME
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - README.md
+  - CNAME
+
