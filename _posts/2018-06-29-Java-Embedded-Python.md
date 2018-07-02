@@ -3,7 +3,7 @@ layout: post
 permalink: /blog/2018/06/29/Java-Embedded-Python.html
 category: software
 tags: [software, python, java, scala, machine learning]
-title: Integrate Python into Java or Scala Stack using JEP(Java Embedded Python)
+title: 使用JEP(Java Embedded Python)库将Python代码集成到Java或Scala中
 ---
 
 本博客主要讲解如何使用JEP(Java Embedded Python)库将Python代码集成到Java或Scala代码中。
@@ -28,7 +28,7 @@ Scala是一门多范式的编程语言，集成了面向对象编程和函数式
 
 > 以终为始 ——《高效人士的七个习惯》
 
-集成的目的是：在用Java/Scala开发的业务流中能够调用Python编写的机器学习模型，完成在线近实时的模型预测功能。
+集成的目的是：在用Java/Scala开发的业务流中能够调用Python编写的机器学习模型，完成在线准实时的模型预测功能。
 
 工作流可能有：
 
@@ -70,8 +70,20 @@ JEP(Java Embedded Python)通过调用JNI(Java Native Interface)和CPython的API�
 
 ### Thrift
 
+Apache Thrift最初由Facebook开发并开源，是一种高效的跨语言RPC通信框架，目前已经捐献给Apache基金会管理。
+
+Thrift的主要优点：
+
+- 支持的语言多
+- 并发性能好
+
+即实现算法模型的Python代码暴露Thrift接口，Java/Scala通过Thrift接口远程过程调用Python代码，以实现两者的结合。
+
 ### REST API
 
+REST(Representational State Transfer)为表现层状态转移，是所有Web应用都应该遵守的架构设计指导原则，面向资源是REST最明显的特征，即对于同一个资源的一组不同操作。
+
+即实现算法模型的Python代码独立为一个微服务，对外暴露REST API，Java/Scala通过REST API调用Python代码，以实现两者的结合。
 
 ## JEP(Java Embeded Python)
 
@@ -229,5 +241,6 @@ JEP依赖的Java版本和Python版本
 
 ## 参考资料
 
+- [jep doc](http://ninia.github.io/jep/javadoc/)
 - [Integrating Python into Scala Stack](https://sushant-hiray.me/posts/python-in-scala-stack/)
 - [How to integrate python into a scala stack to build realtime predictive models](https://www.slideshare.net/JerryChou4/how-to-integrate-python-into-a-scala-stack-to-build-realtime-predictive-models-v2-nomanuscript)
