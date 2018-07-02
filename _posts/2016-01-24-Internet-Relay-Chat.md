@@ -2,7 +2,7 @@
 layout: post
 permalink: /blog/2016/01/24/Internet-Relay-Chat.html
 category: software
-tags: [software, IM, IRC]
+tags: [software, IM]
 title: IRC (Internet Relay Chat) 入门
 ---
 

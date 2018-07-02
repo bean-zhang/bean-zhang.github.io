@@ -2,7 +2,7 @@
 layout: post
 permalink: /blog/2016/02/22/RUBiS-Installation-and-Configuration.html
 category: software
-tags: [software, research, RUBiS]
+tags: [software, research]
 title: RUBiS的安装及配置
 ---
 
