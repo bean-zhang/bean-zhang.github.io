@@ -121,7 +121,6 @@ JEP依赖的Java版本和Python版本
     $ brew update
     $ brew install pyenv
 
-    $ pyenv update
     $ pyenv versions
     $ pyenv install 3.6.3
     $ cd git_repo # get into git repository directory
@@ -175,7 +174,6 @@ JEP依赖的Java版本和Python版本
 通过[pyenv-installer](https://github.com/pyenv/pyenv-installer)安装[pyenv](https://github.com/pyenv/pyenv)和Python 3.6.3
 
     $ curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
-    $ pyenv update
     $ pyenv versions
     $ PYTHON_CONFIGURE_OPTS="--enable-shared" pyenv install 3.6.3 # compile with -fPIC
     $ cd git_repo # get into git repository directory
