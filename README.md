@@ -1,5 +1,5 @@
-# 87boy.github.io
+# bean-zhang.github.io
 
-The blog of 87boy
+The blog of Bean Zhang
 
 Powered By Jekyll
